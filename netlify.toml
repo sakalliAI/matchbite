@@ -1,0 +1,32 @@
+[build]
+  publish = "."
+
+# Caching for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# DMG download
+[[headers]]
+  for = "/Matchbite.dmg"
+  [headers.values]
+    Content-Type = "application/x-apple-diskimage"
+    Content-Disposition = "attachment; filename=\"Matchbite.dmg\""
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.matchbite.de/*"
+  to = "https://matchbite.de/:splat"
+  status = 301
+  force = true

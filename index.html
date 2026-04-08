@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchbite — Nie wieder "Mir egal, sag du."</title>
+    <meta name="description" content="Matchbite ist die macOS Menu Bar App für Paare, die gemeinsam entscheiden was sie essen. Schluss mit endlosen Diskussionen!">
+    <meta name="keywords" content="Matchbite, macOS App, Paare, Essen entscheiden, Menu Bar App, Food Matcher">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matchbite — Nie wieder 'Mir egal, sag du.'">
+    <meta property="og:description" content="Die macOS Menu Bar App für Paare, die gemeinsam entscheiden was sie essen.">
+    <meta property="og:image" content="https://matchbite.de/assets/og-image.png">
+    <meta property="og:url" content="https://matchbite.de">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matchbite — Nie wieder 'Mir egal, sag du.'">
+    <meta name="twitter:description" content="Die macOS Menu Bar App für Paare, die gemeinsam entscheiden was sie essen.">
+    <meta name="twitter:image" content="https://matchbite.de/assets/og-image.png">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <meta name="theme-color" content="#F5A623">
+
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Ambient background layers -->
+    <div class="grain-overlay"></div>
+    <div class="ambient-orbs" id="ambientOrbs">
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+    </div>
+    <div class="floating-foods" id="floatingFoods">
+        <div class="floating-food">🍕</div>
+        <div class="floating-food">🍣</div>
+        <div class="floating-food">🍔</div>
+        <div class="floating-food">🥗</div>
+        <div class="floating-food">🌮</div>
+        <div class="floating-food">🍜</div>
+        <div class="floating-food">🍝</div>
+        <div class="floating-food">🥑</div>
+    </div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Fixed side indicator -->
+    <div class="side-nav" id="sideNav">
+        <div class="side-nav-roller" id="sideNavRoller">
+            <div class="side-nav-item" data-target="hero">Matchbite</div>
+            <div class="side-nav-item" data-target="problem" data-i18n-nav="nav_problem">Problem</div>
+            <div class="side-nav-item" data-target="how-it-works" data-i18n-nav="nav_how">So funktioniert's</div>
+            <div class="side-nav-item" data-target="features" data-i18n-nav="nav_features">Features</div>
+            <div class="side-nav-item" data-target="download" data-i18n-nav="nav_download">Download</div>
+        </div>
+    </div>
+
+    <!-- Language switcher (top right, minimal) -->
+    <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-toggle" id="langToggle" aria-label="Sprache wechseln">
+            <span class="lang-flag" id="langFlag">DE</span>
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-option active" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="en">English</button>
+            <button class="lang-option" data-lang="tr">Turkce</button>
+            <button class="lang-option" data-lang="ro">Romana</button>
+            <button class="lang-option" data-lang="es">Espanol</button>
+            <button class="lang-option" data-lang="it">Italiano</button>
+            <button class="lang-option" data-lang="pl">Polski</button>
+            <button class="lang-option" data-lang="sv">Svenska</button>
+            <button class="lang-option" data-lang="nl">Nederlands</button>
+            <button class="lang-option" data-lang="be">Belgisch</button>
+            <button class="lang-option" data-lang="bs">Bosanski</button>
+            <button class="lang-option" data-lang="sq">Shqip</button>
+            <button class="lang-option" data-lang="hr">Hrvatski</button>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero -->
+    <section class="panel" id="hero" data-label="Matchbite">
+        <div class="panel-inner">
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="hero_badge">Neu für macOS</div>
+                <h1 class="hero-title" data-i18n="hero_title">Nie wieder<br>"Mir egal, sag du."</h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Matchbite ist die Menu Bar App für Paare, die gemeinsam entscheiden was sie essen. Schluss mit endlosen Diskussionen — swiped einfach!</p>
+                <div class="hero-actions">
+                    <a href="Matchbite.dmg" class="btn btn-primary btn-lg" data-i18n="hero_cta">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3V14M10 14L5 9M10 14L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        Kostenlos laden
+                    </a>
+                    <span class="hero-meta" data-i18n="hero_meta">macOS 14+ &middot; Kostenlos &middot; ~13 MB</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-phone-mockup">
+                    <div class="mockup-menubar">
+                        <div class="mockup-menubar-icons">
+                            <img src="assets/logo_transparent.png" alt="" width="18" height="18">
+                        </div>
+                    </div>
+                    <div class="mockup-app">
+                        <div class="mockup-header">
+                            <img src="assets/logo_farbig.png" alt="Matchbite" width="48" height="48" class="mockup-logo">
+                            <span class="mockup-title">Matchbite</span>
+                        </div>
+                        <div class="mockup-card">
+                            <div class="mockup-food-emoji">🍕</div>
+                            <div class="mockup-food-name">Pizza</div>
+                        </div>
+                        <div class="mockup-actions">
+                            <div class="mockup-btn mockup-btn-no">✕</div>
+                            <div class="mockup-btn mockup-btn-yes">♥</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Problem -->
+    <section class="panel panel-warm" id="problem" data-label-i18n="nav_problem" data-label="Problem">
+        <div class="panel-inner panel-center">
+            <h2 class="section-title" data-i18n="problem_title">Kennst du das?</h2>
+            <p class="section-subtitle" data-i18n="problem_subtitle">Jeden Tag das gleiche Drama. Jedes Paar kennt es.</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-emoji">🤷‍♀️</div>
+                    <p class="problem-quote" data-i18n="problem_1">"Was willst du essen?" — "Mir egal, du darfst entscheiden."</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-emoji">😤</div>
+                    <p class="problem-quote" data-i18n="problem_2">"Pizza?" — "Ne, hatte ich gestern." — "Sushi?" — "Zu teuer." — "Dann sag DU mal!"</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-emoji">🕐</div>
+                    <p class="problem-quote" data-i18n="problem_3">30 Minuten diskutieren. Am Ende doch wieder das Gleiche bestellen.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-emoji">😩</div>
+                    <p class="problem-quote" data-i18n="problem_4">"Mir ist alles recht." — Bestellt man was, ist es dann doch nicht recht.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: How it works -->
+    <section class="panel" id="how-it-works" data-label-i18n="nav_how" data-label="So funktioniert's">
+        <div class="panel-inner panel-center">
+            <h2 class="section-title" data-i18n="how_title">So einfach geht's</h2>
+            <p class="section-subtitle" data-i18n="how_subtitle">In drei Schritten zum gemeinsamen Essen-Match.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title" data-i18n="step1_title">Installieren</h3>
+                    <p class="step-desc" data-i18n="step1_desc">DMG laden, App in den Programme-Ordner ziehen — fertig. Matchbite sitzt in deiner Menu Bar.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--amber)" stroke-width="2" stroke-dasharray="4 4"/></svg>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title" data-i18n="step2_title">Swipen</h3>
+                    <p class="step-desc" data-i18n="step2_desc">Beide swipen unabhängig durch Essensvorschläge. Ja oder Nein — ganz intuitiv.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--amber)" stroke-width="2" stroke-dasharray="4 4"/></svg>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title" data-i18n="step3_title">Match!</h3>
+                    <p class="step-desc" data-i18n="step3_desc">Sobald ihr bei einem Gericht übereinstimmt — Bingo! Heute gibt's genau das.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Features -->
+    <section class="panel panel-warm" id="features" data-label-i18n="nav_features" data-label="Features">
+        <div class="panel-inner panel-center">
+            <h2 class="section-title" data-i18n="features_title">Alles was du brauchst</h2>
+            <p class="section-subtitle" data-i18n="features_subtitle">Klein, schnell, clever — und immer nur einen Klick entfernt.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-preview">
+                        <img src="appbilder/menubar.png" alt="Matchbite Menu Bar" loading="lazy">
+                    </div>
+                    <h3 data-i18n="feature1_title">Menü Bar App</h3>
+                    <p data-i18n="feature1_desc">Lebt in deiner Menü Bar. Ein Klick öffnet Matchbite — kein extra Fenster, kein App-Switching.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-preview">
+                        <img src="appbilder/notificationbanner_neu Kopie.png" alt="Matchbite Erinnerung" loading="lazy">
+                    </div>
+                    <h3 data-i18n="feature2_title">Tägliche Erinnerung</h3>
+                    <p data-i18n="feature2_desc">Matchbite erinnert euch zur Mittagszeit — damit ihr nicht erst um 14 Uhr anfangt zu überlegen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-preview feature-preview-tall">
+                        <img src="appbilder/swipescreen_neu.png" alt="Matchbite Swipe-Modus" loading="lazy">
+                    </div>
+                    <h3 data-i18n="feature3_title">Swipe-Modus</h3>
+                    <p data-i18n="feature3_desc">Wisch durch die Vorschläge — nach rechts für Ja, nach links für Nein. So einfach wie Tinder, nur für Essen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-preview feature-preview-tall">
+                        <img src="appbilder/einstellungen.png" alt="Matchbite Einstellungen" loading="lazy">
+                    </div>
+                    <h3 data-i18n="feature4_title">Für macOS gemacht</h3>
+                    <p data-i18n="feature4_desc">Native macOS App. Schnell, leicht, fühlt sich an wie ein Teil deines Systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Download -->
+    <section class="panel" id="download" data-label-i18n="nav_download" data-label="Download">
+        <div class="panel-inner panel-center">
+            <div class="download-content">
+                <img src="assets/logo_farbig.png" alt="Matchbite" width="96" height="96" class="download-logo">
+                <h2 class="download-title" data-i18n="download_title">Rette deine Beziehung —<br>eine Mahlzeit nach der anderen.</h2>
+                <p class="download-subtitle" data-i18n="download_subtitle">Kostenlos. Kein Abo. Keine In-App-Käufe. Einfach laden und losswipen.</p>
+                <a href="Matchbite.dmg" class="btn btn-primary btn-xl" data-i18n="download_cta">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4V16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Kostenlos für macOS laden
+                </a>
+                <span class="download-meta" data-i18n="download_meta">Erfordert macOS 14 Sonoma oder neuer</span>
+            </div>
+            <footer class="footer">
+                <div class="footer-inner">
+                    <p class="footer-love" data-i18n="footer_love">Made with ♥ für hungrige Paare</p>
+                    <div class="footer-links">
+                        <a href="#" data-i18n="footer_impressum">Impressum</a>
+                        <a href="#" data-i18n="footer_privacy">Datenschutz</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
