@@ -17,12 +17,14 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
-# DMG download
-[[headers]]
-  for = "/Matchbite.dmg"
-  [headers.values]
-    Content-Type = "application/x-apple-diskimage"
-    Content-Disposition = "attachment; filename=\"Matchbite.dmg\""
+# Proxy GitHub Releases API (same-origin for CSP)
+[[redirects]]
+  from = "/api/latest-release"
+  to = "https://api.github.com/repos/sakalliAI/matchbite/releases/latest"
+  status = 200
+  force = true
+  [redirects.headers]
+    Accept = "application/vnd.github.v3+json"
 
 # Redirect www to non-www
 [[redirects]]

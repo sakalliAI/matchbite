@@ -879,6 +879,21 @@ document.addEventListener("DOMContentLoaded", () => {
     btnNo.addEventListener("click", resetAutoSwipe);
     btnYes.addEventListener("click", resetAutoSwipe);
 
+    // ===== AUTO-FETCH LATEST DOWNLOAD FROM GITHUB RELEASES =====
+    (function() {
+        fetch("/api/latest-release")
+            .then(r => r.ok ? r.json() : Promise.reject())
+            .then(release => {
+                const dmg = release.assets && release.assets.find(a => a.name.endsWith(".dmg"));
+                if (dmg) {
+                    document.querySelectorAll("a.download-btn").forEach(btn => {
+                        btn.href = dmg.browser_download_url;
+                    });
+                }
+            })
+            .catch(() => {}); // Fallback: buttons keep GitHub releases page link
+    })();
+
     // ===== AMBIENT BACKGROUND =====
 
     // Activate orbs + floating foods after short delay
