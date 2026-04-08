@@ -17,6 +17,12 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
+# appcast.xml must never be cached — Sparkle checks this for updates
+[[headers]]
+  for = "/appcast.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # Proxy GitHub Releases API (same-origin for CSP)
 [[redirects]]
   from = "/api/latest-release"
