@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Matchbite Updates</title>
+    <language>de</language>
+    <item>
+      <title>Version 1.00</title>
+      <pubDate>Wed, 08 Apr 2026 17:15:27 +0200</pubDate>
+      <sparkle:version>1.00</sparkle:version>
+      <sparkle:shortVersionString>1.00</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://github.com/sakalliAI/matchbite/releases/download/v1.00/Matchbite-v1.00.dmg"
+        length="13912726"
+        type="application/octet-stream"
+        sparkle:edSignature="jLKkriduNSJDZPXsJVmIMCdC9J9pvvindTgRzGYHsG2u1Y+eGa7u2bDGbeiTQK77ec7YYzBjPZq7RcuIiE51AA==" />
+    </item>
+  </channel>
+</rss>
