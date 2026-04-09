@@ -4,16 +4,16 @@
     <title>Matchbite Updates</title>
     <language>de</language>
     <item>
-      <title>Version 1.23</title>
-      <pubDate>Thu, 09 Apr 2026 23:11:59 +0200</pubDate>
-      <sparkle:version>123</sparkle:version>
-      <sparkle:shortVersionString>1.23</sparkle:shortVersionString>
+      <title>Version 1.24</title>
+      <pubDate>Thu, 09 Apr 2026 23:19:54 +0200</pubDate>
+      <sparkle:version>124</sparkle:version>
+      <sparkle:shortVersionString>1.24</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure
-        url="https://github.com/sakalliAI/matchbite/releases/download/v1.23/Matchbite-v1.23.dmg"
-        length="13982741"
+        url="https://github.com/sakalliAI/matchbite/releases/download/v1.24/Matchbite-v1.24.dmg"
+        length="13976935"
         type="application/octet-stream"
-        sparkle:edSignature="TyKhUnByednJXrm0dbTWQ72ikWtegkWuXqRF88fY8AeNTJMECCM3eJtIrVXDYn1RYlmwB23jn7r1YddJPPXDCA==" />
+        sparkle:edSignature="aMQDx/nokuV7cV6ldZxV4dpxu+HJQMou0CDk7F2HX3LBHdOlS92PtEkbzKVkKPP35sbReTaN1pqXAsFkA3CvBg==" />
     </item>
   </channel>
 </rss>
