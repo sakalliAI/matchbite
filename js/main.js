@@ -4,6 +4,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "So funktioniert's",
         nav_features: "Features",
+        nav_faq: "FAQ",
         nav_download: "Download",
         hero_badge: "Neu für macOS",
         hero_title: 'Nie wieder<br>"Mir egal, sag du."',
@@ -40,6 +41,18 @@ const translations = {
         download_subtitle: "Kostenlos. Kein Abo. Keine In-App-Käufe. Einfach laden und losswipen.",
         download_cta: "Kostenlos für macOS laden",
         download_meta: "Erfordert macOS 14 Sonoma oder neuer",
+        faq_title: "Häufige Fragen",
+        faq_subtitle: "Alles was du über Matchbite wissen musst.",
+        faq_q1: "Was ist Matchbite?",
+        faq_a1: "Matchbite ist eine kostenlose macOS Menu Bar App, die Paaren hilft gemeinsam zu entscheiden, was sie essen. Wie Tinder für Essen — beide swipen durch Vorschläge und bei einem Match steht das Gericht fest.",
+        faq_q2: "Wie funktioniert Matchbite?",
+        faq_a2: "Beide Partner swipen unabhängig durch Essensvorschläge — nach rechts für Ja, nach links für Nein. Sobald beide das gleiche Gericht mögen, gibt es ein Match und die Essensfrage ist geklärt.",
+        faq_q3: "Ist Matchbite kostenlos?",
+        faq_a3: "Ja, Matchbite ist komplett kostenlos. Kein Abo, keine In-App-Käufe, keine versteckten Kosten. Einfach laden und losswipen.",
+        faq_q4: "Für welche Geräte ist Matchbite verfügbar?",
+        faq_a4: "Matchbite ist aktuell als native macOS Menu Bar App verfügbar und erfordert macOS 14 Sonoma oder neuer.",
+        faq_q5: "Brauche ich einen Account?",
+        faq_a5: "Ja, eine kostenlose Registrierung ist nötig — aber komplett ohne Haken. Kein Abo, keine versteckten Kosten.",
         footer_love: "Made with \u2665 für hungrige Paare",
         footer_impressum: "Impressum",
         footer_privacy: "Datenschutz"
@@ -48,6 +61,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "How it works",
         nav_features: "Features",
+        nav_faq: "FAQ",
         nav_download: "Download",
         hero_badge: "New for macOS",
         hero_title: 'Never again<br>"I don\'t care, you decide."',
@@ -82,6 +96,18 @@ const translations = {
         download_subtitle: "Free. No subscriptions. No in-app purchases. Just download and start swiping.",
         download_cta: "Download free for macOS",
         download_meta: "Requires macOS 14 Sonoma or later",
+        faq_title: "Frequently Asked Questions",
+        faq_subtitle: "Everything you need to know about Matchbite.",
+        faq_q1: "What is Matchbite?",
+        faq_a1: "Matchbite is a free macOS Menu Bar app that helps couples decide what to eat together. Like Tinder for food — both swipe through suggestions and when you match, dinner is decided.",
+        faq_q2: "How does Matchbite work?",
+        faq_a2: "Both partners swipe through food suggestions independently — right for yes, left for no. As soon as both like the same dish, it's a match and the food question is settled.",
+        faq_q3: "Is Matchbite free?",
+        faq_a3: "Yes, Matchbite is completely free. No subscription, no in-app purchases, no hidden costs. Just download and start swiping.",
+        faq_q4: "Which devices is Matchbite available for?",
+        faq_a4: "Matchbite is currently available as a native macOS Menu Bar app and requires macOS 14 Sonoma or newer.",
+        faq_q5: "Do I need an account?",
+        faq_a5: "Yes, a free registration is required — but with absolutely no strings attached. No subscription, no hidden costs.",
         footer_love: "Made with \u2665 for hungry couples",
         footer_impressum: "Legal Notice",
         footer_privacy: "Privacy Policy"
@@ -90,6 +116,7 @@ const translations = {
         nav_problem: "Sorun",
         nav_how: "Nasil calisir",
         nav_features: "Ozellikler",
+        nav_faq: "SSS",
         nav_download: "Indir",
         hero_badge: "macOS icin yeni",
         hero_title: 'Bir daha asla<br>"Fark etmez, sen sec."',
@@ -132,6 +159,7 @@ const translations = {
         nav_problem: "Problema",
         nav_how: "Cum functioneaza",
         nav_features: "Functii",
+        nav_faq: "FAQ",
         nav_download: "Descarca",
         hero_badge: "Nou pentru macOS",
         hero_title: 'Niciodata<br>"Nu-mi pasa, alege tu."',
@@ -174,6 +202,7 @@ const translations = {
         nav_problem: "Problema",
         nav_how: "Como funciona",
         nav_features: "Funciones",
+        nav_faq: "FAQ",
         nav_download: "Descargar",
         hero_badge: "Nuevo para macOS",
         hero_title: 'Nunca mas<br>"Me da igual, decide tu."',
@@ -216,6 +245,7 @@ const translations = {
         nav_problem: "Problema",
         nav_how: "Come funziona",
         nav_features: "Funzioni",
+        nav_faq: "FAQ",
         nav_download: "Scarica",
         hero_badge: "Nuovo per macOS",
         hero_title: 'Mai piu<br>"Non mi importa, decidi tu."',
@@ -258,6 +288,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "Jak to dziala",
         nav_features: "Funkcje",
+        nav_faq: "FAQ",
         nav_download: "Pobierz",
         hero_badge: "Nowe na macOS",
         hero_title: 'Nigdy wiecej<br>"Wszystko mi jedno, ty zdecyduj."',
@@ -300,6 +331,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "Hur det funkar",
         nav_features: "Funktioner",
+        nav_faq: "FAQ",
         nav_download: "Ladda ner",
         hero_badge: "Nytt for macOS",
         hero_title: 'Aldrig mer<br>"Jag bryr mig inte, du bestammer."',
@@ -342,6 +374,7 @@ const translations = {
         nav_problem: "Probleem",
         nav_how: "Hoe het werkt",
         nav_features: "Functies",
+        nav_faq: "FAQ",
         nav_download: "Download",
         hero_badge: "Nieuw voor macOS",
         hero_title: 'Nooit meer<br>"Maakt niet uit, jij kiest."',
@@ -384,6 +417,7 @@ const translations = {
         nav_problem: "Probleem",
         nav_how: "Hoe het werkt",
         nav_features: "Functies",
+        nav_faq: "FAQ",
         nav_download: "Download",
         hero_badge: "Nieuw voor macOS",
         hero_title: 'Nooit meer<br>"Maakt nie uit, kies gij."',
@@ -426,6 +460,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "Kako radi",
         nav_features: "Funkcije",
+        nav_faq: "FAQ",
         nav_download: "Preuzmi",
         hero_badge: "Novo za macOS",
         hero_title: 'Nikad vise<br>"Svejedno mi je, ti odluci."',
@@ -468,6 +503,7 @@ const translations = {
         nav_problem: "Problemi",
         nav_how: "Si funksionon",
         nav_features: "Vecorite",
+        nav_faq: "FAQ",
         nav_download: "Shkarko",
         hero_badge: "E re per macOS",
         hero_title: 'Kurre me<br>"Nuk me intereson, ti vendos."',
@@ -510,6 +546,7 @@ const translations = {
         nav_problem: "Problem",
         nav_how: "Kako radi",
         nav_features: "Znacajke",
+        nav_faq: "FAQ",
         nav_download: "Preuzmi",
         hero_badge: "Novo za macOS",
         hero_title: 'Nikad vise<br>"Svejedno mi je, ti odluci."',
@@ -697,6 +734,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navItems.length > 0) {
         navItems[0].classList.add("active");
     }
+
+    // ===== FAQ ACCORDION =====
+    document.querySelectorAll(".faq-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const item = btn.closest(".faq-item");
+            const isOpen = item.classList.contains("open");
+            // Close all others
+            document.querySelectorAll(".faq-item.open").forEach(openItem => {
+                openItem.classList.remove("open");
+                openItem.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+            });
+            // Toggle current
+            if (!isOpen) {
+                item.classList.add("open");
+                btn.setAttribute("aria-expanded", "true");
+            }
+        });
+    });
 
     // ===== PARALLAX FOOD EMOJIS =====
     const foodEmojis = Array.from(document.querySelectorAll(".floating-food"));

@@ -1,0 +1,46 @@
+# Matchbite
+
+> Matchbite is a free macOS Menu Bar app that helps couples decide what to eat together — like Tinder, but for food.
+
+## What is Matchbite?
+
+Matchbite solves the universal couple problem: "What should we eat?" Instead of endless discussions, both partners independently swipe through food suggestions (right for yes, left for no). When both agree on a dish, it's a match — and dinner is decided.
+
+## How it works
+
+1. Install: Download the DMG from matchbite.de or GitHub Releases, drag to Applications. Matchbite lives in your macOS Menu Bar.
+2. Swipe: Both partners swipe through food suggestions independently — right for yes, left for no.
+3. Match: When both agree on a dish, Matchbite shows the match. Dinner is decided.
+
+## Key details
+
+- Platform: macOS (Menu Bar App), requires macOS 14 Sonoma or newer
+- Price: Free. No subscription. No in-app purchases.
+- Download: https://matchbite.de or https://github.com/sakalliAI/matchbite/releases/latest
+- Website: https://matchbite.de
+- Developer: sakalliAI
+
+## Features
+
+- Lives in the macOS Menu Bar — one click to open, no app switching
+- Swipe mode — intuitive Tinder-like swiping for food choices
+- Daily reminder — notification at lunchtime so you decide early
+- Native macOS app — fast, lightweight, feels like part of the system
+- Free registration required — no strings attached, no hidden costs
+
+## Key differentiators
+
+- Specifically designed for couples deciding on meals together
+- Menu Bar app — always accessible, never in the way
+- Completely free with no monetization
+- Native macOS experience (not a web wrapper)
+- Free registration — no subscription, no catch
+- Privacy-friendly: no data collection, works locally
+
+## Common search queries this product answers
+
+- "Tinder fuer Essen" (Tinder for food)
+- "Was sollen wir essen App" (What should we eat app)
+- "Essen entscheiden App" (Decide what to eat app)
+- "Paare Essen App" (Couples food app)
+- "Gemeinsam essen entscheiden" (Decide on food together)
