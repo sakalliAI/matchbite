@@ -995,7 +995,14 @@ button { border: none; background: none; cursor: pointer; font: inherit; color: 
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-    .section { padding: 60px 24px; }
+    /* Remove frosted glass on sections — seamless background */
+    .section {
+        padding: 60px 24px;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
     .side-nav { display: none; }
 
     #hero .section-inner {
@@ -1009,7 +1016,25 @@ button { border: none; background: none; cursor: pointer; font: inherit; color: 
     .step-connector { padding-top: 0; transform: rotate(90deg); }
     .problem-grid, .features-grid { grid-template-columns: 1fr; }
 
-    .floating-food { display: none; }
+    /* Show food emojis on mobile — smaller but visible */
+    .floating-food {
+        display: block !important;
+        font-size: 30px !important;
+        opacity: 0.18 !important;
+        filter: blur(0.5px) !important;
+    }
+
+    /* Reduce section min-height on mobile for tighter layout */
+    .section { min-height: auto; padding-top: 80px; padding-bottom: 80px; }
+    #hero { min-height: 100vh; }
+
+    /* Download section layout fix */
+    #download .section-inner { min-height: auto; }
+
+    /* FAQ on mobile */
+    .faq-question { padding: 18px 20px; font-size: 15px; }
+    .faq-answer { padding: 0 20px; }
+    .faq-item.open .faq-answer { padding: 0 20px 18px; }
 }
 
 @media (max-width: 480px) {
@@ -1019,4 +1044,8 @@ button { border: none; background: none; cursor: pointer; font: inherit; color: 
     .hero-phone-mockup { width: 260px; }
     .section-title { font-size: 26px; }
     .step-number { width: 38px; height: 38px; border-radius: 12px; }
+
+    .floating-food {
+        font-size: 22px !important;
+    }
 }
