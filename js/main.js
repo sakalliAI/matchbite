@@ -591,27 +591,16 @@ function setLanguage(lang) {
     // Update html lang attribute
     document.documentElement.lang = lang === "be" ? "nl-BE" : lang;
 
+    // Update nav labels
+    document.querySelectorAll(".side-nav-item").forEach(item => {
+        const key = item.getAttribute("data-i18n-nav");
+        if (key && translations[lang] && translations[lang][key]) {
+            item.textContent = translations[lang][key];
+        }
+    });
+
     // Save preference
     try { localStorage.setItem("matchbite-lang", lang); } catch(e) {}
-}
-
-/* ===== SECTION LABELS (for side nav, per language) ===== */
-const sectionLabels = {
-    hero: "Matchbite",
-    problem: "nav_problem",
-    "how-it-works": "nav_how",
-    features: "nav_features",
-    download: "nav_download"
-};
-
-function getSectionLabel(sectionId) {
-    if (sectionId === "hero") return "Matchbite";
-    const key = sectionLabels[sectionId];
-    if (key && translations[currentLang] && translations[currentLang][key]) {
-        return translations[currentLang][key];
-    }
-    const panel = document.getElementById(sectionId);
-    return panel ? panel.dataset.label || sectionId : sectionId;
 }
 
 /* ===== INIT ===== */
@@ -644,162 +633,91 @@ document.addEventListener("DOMContentLoaded", () => {
         langDropdown.classList.remove("open");
     });
 
-    // ===== FULL-PAGE SCROLL =====
-    const panels = Array.from(document.querySelectorAll(".panel"));
+    // ===== INTERSECTION OBSERVER — section reveal + nav highlighting =====
+    const sections = Array.from(document.querySelectorAll(".section"));
     const navItems = Array.from(document.querySelectorAll(".side-nav-item"));
-    const roller = document.getElementById("sideNavRoller");
-    let currentActiveSection = "hero";
-    let currentIndex = 0;
-    let isScrolling = false;
 
-    function updateRoller(index) {
-        // Shift the roller so active item is centered
-        // Each item is ~43px tall (14px padding top + bottom + font)
-        const itemHeight = 43;
-        const offset = -index * itemHeight;
-        roller.style.transform = "translateY(" + offset + "px)";
-
-        navItems.forEach((item, i) => {
-            item.classList.remove("active", "near");
-            if (i === index) {
-                item.classList.add("active");
-            } else if (Math.abs(i - index) === 1) {
-                item.classList.add("near");
+    // Reveal observer: add .in-view when section enters viewport
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
             }
         });
-    }
-
-    function goToSection(index, smooth) {
-        if (index < 0 || index >= panels.length || isScrolling) return;
-        if (index === currentIndex) return;
-
-        isScrolling = true;
-        const oldIndex = currentIndex;
-        const direction = index > oldIndex ? "down" : "up";
-        currentIndex = index;
-        currentActiveSection = panels[index].id;
-        updateRoller(index);
-
-        if (!smooth) {
-            panels.forEach(p => {
-                p.classList.remove("active", "slide-in-up", "slide-in-down", "slide-out-up", "slide-out-down", "in-view");
-                p.style.animation = "none";
-            });
-            panels[index].classList.add("active", "in-view");
-            isScrolling = false;
-            return;
-        }
-
-        const oldPanel = panels[oldIndex];
-        const newPanel = panels[index];
-
-        // Remove in-view so content animates out
-        oldPanel.classList.remove("in-view");
-
-        // Directional slide: going down = new slides up from bottom, old slides up out
-        oldPanel.classList.remove("active");
-        if (direction === "down") {
-            oldPanel.classList.add("slide-out-up");
-            newPanel.classList.add("slide-in-up");
-        } else {
-            oldPanel.classList.add("slide-out-down");
-            newPanel.classList.add("slide-in-down");
-        }
-
-        // After slide animation, clean up and trigger content reveal
-        const duration = 750;
-        setTimeout(() => {
-            oldPanel.classList.remove("slide-out-up", "slide-out-down");
-            oldPanel.style.animation = "none";
-            oldPanel.offsetHeight;
-            oldPanel.style.animation = "";
-
-            newPanel.classList.remove("slide-in-up", "slide-in-down");
-            newPanel.style.animation = "none";
-            newPanel.offsetHeight;
-            newPanel.style.animation = "";
-            newPanel.classList.add("active");
-
-            // Staggered content reveal after panel lands
-            requestAnimationFrame(() => {
-                newPanel.classList.add("in-view");
-            });
-
-            setTimeout(() => { isScrolling = false; }, 200);
-        }, duration);
-    }
-
-    // Wheel / trackpad scroll hijack
-    let wheelAccumulator = 0;
-    let wheelTimer = null;
-
-    window.addEventListener("wheel", (e) => {
-        e.preventDefault();
-
-        wheelAccumulator += e.deltaY;
-
-        if (wheelTimer) clearTimeout(wheelTimer);
-        wheelTimer = setTimeout(() => { wheelAccumulator = 0; }, 200);
-
-        if (isScrolling) return;
-
-        if (wheelAccumulator > 50) {
-            wheelAccumulator = 0;
-            goToSection(currentIndex + 1, true);
-        } else if (wheelAccumulator < -50) {
-            wheelAccumulator = 0;
-            goToSection(currentIndex - 1, true);
-        }
-    }, { passive: false });
-
-    // Touch swipe support
-    let touchStartY = 0;
-    window.addEventListener("touchstart", (e) => {
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-
-    window.addEventListener("touchend", (e) => {
-        const diff = touchStartY - e.changedTouches[0].clientY;
-        if (Math.abs(diff) > 50 && !isScrolling) {
-            if (diff > 0) goToSection(currentIndex + 1, true);
-            else goToSection(currentIndex - 1, true);
-        }
-    }, { passive: true });
-
-    // Keyboard navigation
-    window.addEventListener("keydown", (e) => {
-        if (isScrolling) return;
-        if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
-            e.preventDefault();
-            goToSection(currentIndex + 1, true);
-        } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-            e.preventDefault();
-            goToSection(currentIndex - 1, true);
-        }
+    }, {
+        threshold: 0.15
     });
 
-    // Click navigation on roller items
-    navItems.forEach((item, i) => {
+    sections.forEach(section => revealObserver.observe(section));
+
+    // Nav highlight observer: track which section is most visible
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                const index = sections.findIndex(s => s.id === sectionId);
+                if (index !== -1) {
+                    navItems.forEach((item, i) => {
+                        item.classList.remove("active", "near");
+                        if (i === index) {
+                            item.classList.add("active");
+                        } else if (Math.abs(i - index) === 1) {
+                            item.classList.add("near");
+                        }
+                    });
+                }
+            }
+        });
+    }, {
+        threshold: 0.4
+    });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // Side nav click — smooth scroll to section
+    navItems.forEach(item => {
         item.addEventListener("click", () => {
-            goToSection(i, true);
+            const targetId = item.getAttribute("data-target");
+            const target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
         });
     });
 
-    // Update roller labels on language change
-    const origSetLang = setLanguage;
-    setLanguage = function(lang) {
-        origSetLang(lang);
-        navItems.forEach(item => {
-            const key = item.getAttribute("data-i18n-nav");
-            if (key && translations[lang] && translations[lang][key]) {
-                item.textContent = translations[lang][key];
-            }
+    // Trigger hero in-view immediately
+    const hero = document.getElementById("hero");
+    if (hero) {
+        requestAnimationFrame(() => {
+            hero.classList.add("in-view");
         });
-    };
+    }
 
-    // Init first section
-    panels[0].classList.add("active", "in-view");
-    updateRoller(0);
+    // Set initial nav state
+    if (navItems.length > 0) {
+        navItems[0].classList.add("active");
+    }
+
+    // ===== PARALLAX FOOD EMOJIS =====
+    const foodEmojis = Array.from(document.querySelectorAll(".floating-food"));
+    let ticking = false;
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        foodEmojis.forEach(emoji => {
+            const speed = parseFloat(emoji.dataset.speed) || 0.2;
+            const yOffset = scrollY * speed;
+            emoji.style.transform = "translateY(" + (-yOffset) + "px)";
+        });
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
 
     // ===== INTERACTIVE MOCKUP =====
     const foods = [
@@ -815,7 +733,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let foodIndex = 0;
     let swiping = false;
     const card = document.querySelector(".mockup-card");
-    const foodEmoji = document.querySelector(".mockup-food-emoji");
+    const foodEmojiEl = document.querySelector(".mockup-food-emoji");
     const foodName = document.querySelector(".mockup-food-name");
     const btnNo = document.querySelector(".mockup-btn-no");
     const btnYes = document.querySelector(".mockup-btn-yes");
@@ -850,7 +768,7 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.className = "mockup-card-overlay";
             overlay.textContent = "";
             foodIndex = (foodIndex + 1) % foods.length;
-            foodEmoji.textContent = foods[foodIndex].emoji;
+            foodEmojiEl.textContent = foods[foodIndex].emoji;
             foodName.textContent = foods[foodIndex].name;
 
             card.style.transition = "none";
