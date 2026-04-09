@@ -26,7 +26,7 @@ Matchbite solves the universal couple problem: "What should we eat?" Instead of 
 - Swipe mode — intuitive Tinder-like swiping for food choices
 - Daily reminder — notification at lunchtime so you decide early
 - Native macOS app — fast, lightweight, feels like part of the system
-- Free registration required — no strings attached, no hidden costs
+- Sign up with email, Apple ID, Google — or start anonymously
 
 ## Key differentiators
 
@@ -34,7 +34,7 @@ Matchbite solves the universal couple problem: "What should we eat?" Instead of 
 - Menu Bar app — always accessible, never in the way
 - Completely free with no monetization
 - Native macOS experience (not a web wrapper)
-- Free registration — no subscription, no catch
+- Anonymous mode available — no account needed to start
 - Privacy-friendly: no data collection, works locally
 
 ## Common search queries this product answers

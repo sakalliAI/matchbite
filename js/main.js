@@ -52,7 +52,7 @@ const translations = {
         faq_q4: "Für welche Geräte ist Matchbite verfügbar?",
         faq_a4: "Matchbite ist aktuell als native macOS Menu Bar App verfügbar und erfordert macOS 14 Sonoma oder neuer.",
         faq_q5: "Brauche ich einen Account?",
-        faq_a5: "Ja, eine kostenlose Registrierung ist nötig — aber komplett ohne Haken. Kein Abo, keine versteckten Kosten.",
+        faq_a5: "Du kannst dich mit E-Mail, Apple ID oder Google anmelden — oder einfach anonym starten und sofort losswipen. Komplett kostenlos.",
         footer_love: "Made with \u2665 für hungrige Paare",
         footer_impressum: "Impressum",
         footer_privacy: "Datenschutz"
@@ -107,7 +107,7 @@ const translations = {
         faq_q4: "Which devices is Matchbite available for?",
         faq_a4: "Matchbite is currently available as a native macOS Menu Bar app and requires macOS 14 Sonoma or newer.",
         faq_q5: "Do I need an account?",
-        faq_a5: "Yes, a free registration is required — but with absolutely no strings attached. No subscription, no hidden costs.",
+        faq_a5: "You can sign up with email, Apple ID, or Google — or just start anonymously and swipe right away. Completely free.",
         footer_love: "Made with \u2665 for hungry couples",
         footer_impressum: "Legal Notice",
         footer_privacy: "Privacy Policy"
